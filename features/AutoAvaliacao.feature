@@ -24,3 +24,15 @@ And “Ricardo” tries to submit his grades to the system
 Then No one “Ricardo” grades are filled 
 And “Ricardo” grades “IA”, “Machine Learning”, “Neural Networks” are empty
 
+Scenario: Observando notas da minha turma sem discrepância
+Given: I am at the “Grades” page as “Vitor Sousa” in “IP” monitoring
+And I see a list of student
+Then I select “Paulo”
+And I see “Paulo” has fill “MA” he received “MANA” in “OOP”
+And I see “Paulo” has fill “MA” he received “MA” in “Arrays”
+And I see “Paulo” has fill “MPA” he received “MPA” in “Strings”
+And I see “Paulo” has fill “MA” he received “MPA” in “Primitive Types”
+And I see “Paulo” has fill “MA” he received “MPA” in “Abstract Types”
+When I filter for “Paulo” discrepant student grades
+And I confirm “Paulo” has a discrepant grades on “OOP”
+Then I can confirm “Paulo” has no others discrepant grades
